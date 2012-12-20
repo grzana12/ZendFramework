@@ -114,7 +114,7 @@ class Zend_Service_Amazon_Item
      *
      * @param  null|DOMElement $dom
      * @return void
-     * @throws    Zend_Service_Amazon_Exception
+     * @throws Zend_Service_Amazon_Exception
      *
      * @group ZF-9547
      */

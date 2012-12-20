@@ -495,22 +495,6 @@ class Zend_Service_Amazon_S3_OnlineTest extends PHPUnit_Framework_TestCase
         $xml = new SimpleXMLElement($response->getBody());
         $this->assertEquals((string) $xml->Name,$this->_bucket,'The bucket name in XML response is not valid');
     }
-    /**
-     * @see ZF-11401
-     */
-    public function testCommonPrefixes()
-    {
-        $this->_amazon->createBucket($this->_bucket);
-        $this->_amazon->putObject($this->_bucket.'/test-folder/test1','test');
-        $this->_amazon->putObject($this->_bucket.'/test-folder/test2-folder/','');
-        $params= array(
-                    'prefix' => 'test-folder/',
-                    'delimiter' => '/'
-                 );
-        $response= $this->_amazon->getObjectsAndPrefixesByBucket($this->_bucket,$params);
-        $this->assertEquals($response['objects'][0],'test-folder/test1');
-        $this->assertEquals($response['prefixes'][0],'test-folder/test2-folder/');
-    }
     public function tearDown()
     {
         unset($this->_amazon->debug);

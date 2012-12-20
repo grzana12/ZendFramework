@@ -852,41 +852,7 @@ EOB;
         $this->assertEquals($targetHtmlOutput, Zend_Json::prettyPrint($jsonstr, array('format' => 'html')));
     }
 
-    /**
-     * @group ZF-11167
-     */
-    public function testEncodeWillUseToArrayMethodWhenAvailable()
-    {
-        $o = new ZF11167_ToArrayClass();
-        $objJson = Zend_Json::encode($o);
-        $arrJson = Zend_Json::encode($o->toArray());
-        $this->assertSame($arrJson, $objJson);
-    }
 
-    /**
-     * @group ZF-11167
-     */
-    public function testEncodeWillUseToJsonWhenBothToJsonAndToArrayMethodsAreAvailable()
-    {
-        $o = new ZF11167_ToArrayToJsonClass();
-        $objJson = Zend_Json::encode($o);
-        $this->assertEquals('"bogus"', $objJson);
-        $arrJson = Zend_Json::encode($o->toArray());
-        $this->assertNotSame($objJson, $arrJson);
-    }
-
-    /**
-     * @group ZF-9521
-     */
-    public function testWillEncodeArrayOfObjectsEachWithToJsonMethod()
-    {
-        $array = array('one'=>new ToJsonClass());
-        $expected = '{"one":{"__className":"ToJsonClass","firstName":"John","lastName":"Doe","email":"john@doe.com"}}';
-
-        Zend_Json::$useBuiltinEncoderDecoder = true;
-        $json = Zend_Json::encode($array);
-        $this->assertEquals($expected, $json);
-    }
 
 }
 

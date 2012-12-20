@@ -118,8 +118,8 @@ echo $view->render('booklist.php');
             <listitem>
                 <para>
                     <property>basePath</property>: indica o caminho base na qual será definido os
-                    caminhos dos scripts, assistentes e filtros. Ele assume esta estrutura de
-                    diretórios:
+                    caminhos dos scripts, assistentes e filtros. Ele assume uma estrutura de
+                    diretórios de:
                 </para>
 
                 <programlisting language="php"><![CDATA[

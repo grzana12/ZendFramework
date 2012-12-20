@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Reviewed: no -->
-<!-- EN-Revision: 24249 -->
+<!-- EN-Revision: 23879 -->
 <sect1 id="zend.gdata.calendar">
     <title>Google Calendar の使用法</title>
     <para>
@@ -685,7 +685,7 @@ $event->title = $service->newTitle("My Recurring Event");
 $event->where = array($service->newWhere("Palo Alto, California"));
 $event->content =
     $service->newContent(' This is my other awesome event, ' .
-                         ' occurring all-day every Tuesday from .
+                         ' occurring all-day every Tuesday from ' .
                          '2007-05-01 until 207-09-04. No RSVP required.');
 
 // 繰り返しパターンの期間と頻度を指定します

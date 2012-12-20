@@ -10088,4 +10088,44 @@ audio/vnd.qcelp, application/xhtml+xml'
         $capabilities = Zend_Http_UserAgent_AbstractDevice::extractFromUserAgent($userAgent);
         $this->assertEquals('AppleWebKit', $capabilities['browser_name']);
     }
+    
+    /**
+     * @group ZF-11815
+     */
+    public function testUserAgentAppleCoreMediaForIphoneShouldNotResultInNotices()
+    {
+        $userAgent = 'AppleCoreMedia/1.0.0.8L1 (iPhone; U; CPU OS 4_3_5 like Mac OS X; de_de)';
+        $capabilities = Zend_Http_UserAgent_AbstractDevice::extractFromUserAgent($userAgent);
+        $this->assertEquals('AppleCoreMedia', $capabilities['browser_name']);        
+    }
+    
+    /**
+     * @group ZF-11749
+     */
+    public function testUserAgentAppleWebKit53446WithoutLanguageShouldNotResultInNotices()
+    {
+        $userAgent = 'Mozilla/5.0 (iPhone; CPU iPhone OS 5_0 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A5313e Safari/7534.48.3';
+        $capabilities = Zend_Http_UserAgent_AbstractDevice::extractFromUserAgent($userAgent);
+        $this->assertEquals('Safari Mobile', $capabilities['browser_name']);
+    }
+    
+    /**
+     * @group ZF-11693
+     */
+    public function testShortMozillaUserAgentShouldNotResultInNotices()
+    {
+        $userAgent = 'Mozilla/3.0 (compatible)';
+        $capabilities = Zend_Http_UserAgent_AbstractDevice::extractFromUserAgent($userAgent);
+        $this->assertEquals('Mozilla', $capabilities['browser_name']);
+    }
+    
+    /**
+     * @group ZF-11857
+     */
+    public function testOperaOnHtcHd2UserAgentShouldNotResultInNotices()
+    {
+        $userAgent = 'HTC_HD2_T8585 Opera/9.7 (Windows NT 5.1; U; de)';
+        $capabilities = Zend_Http_UserAgent_AbstractDevice::extractFromUserAgent($userAgent);
+        $this->assertEquals('Opera', $capabilities['browser_name']);
+    }
 }

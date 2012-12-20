@@ -273,14 +273,14 @@ class Zend_View_Helper_FormCheckboxTest extends PHPUnit_Framework_TestCase
         $this->assertContains(' />', $test);
     }
 
-    /**
-     * @group ZF-6467
-     */
-    public function testShouldNotShowHiddenFieldIfDisableIsTrue()
-    {
-        $test = $this->helper->formCheckbox('foo', 'bar', array('disable' => true));
-        $this->assertNotContains('type="hidden"', $test);
-    }
+   /**
+    * @group ZF-6467
+    */
+   public function testShouldNotShowHiddenFieldIfDisableIsTrue()
+   {
+       $test = $this->helper->formCheckbox('foo', 'bar', array('disable' => true));
+       $this->assertNotContains('type="hidden"', $test);
+   }
 
     public function testIntValueIsChecked()
     {

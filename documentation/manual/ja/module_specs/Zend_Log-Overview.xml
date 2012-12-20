@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Reviewed: no -->
-<!-- EN-Revision: 24249 -->
+<!-- EN-Revision: 21829 -->
 <sect1 id="zend.log.overview">
     <title>概要</title>
 
@@ -91,8 +91,8 @@ $logger->log('Informational message', Zend_Log::INFO);
 ]]></programlisting>
 
       <para>
-      <methodname>log()</methodname> メソッドの最初のパラメータは文字列の <property>message</property> で、
-      二番目のパラメータは整数の <property>priority</property> です。
+      <methodname>log()</methodname> メソッドの最初のパラメータはメッセージを表す文字列で、
+      二番目のパラメータは優先度を表す整数値です。
       優先度は、ログのインスタンスが理解できる形式の値のいずれかでなければなりません。
       これについては次の節で説明します。
       </para>
@@ -185,7 +185,7 @@ $logger->addPriority('FOO', 8);
 
     <para>
       上の例では、新しい優先度 <constant>FOO</constant> を
-      '8' という値で定義しています。これで、次のようにして新しい優先度でログ出力できるようになります。
+      <code>8</code> という値で定義しています。これで、次のようにして新しい優先度でログ出力できるようになります。
     </para>
 
       <programlisting language="php"><![CDATA[
@@ -225,7 +225,7 @@ $logger->setEventItem('pid', getmypid());
 ]]></programlisting>
 
     <para>
-      上の例は、<property>pid</property> という名前の新しい項目を作成して現在のプロセスの
+      上の例は、<code>pid</code> という名前の新しい項目を作成して現在のプロセスの
       PID を格納します。新しい値が設定されると、他のすべてのイベントデータと同様に
       すべてのライターから自動的にアクセス可能となります。項目を上書きするには、
       もう一度好きなときに <methodname>setEventItem()</methodname> メソッドをコールします。

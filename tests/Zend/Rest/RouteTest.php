@@ -184,7 +184,7 @@ class Zend_Rest_RouteTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(123456789, $values['changedSince']);
         $this->assertEquals('active', $values['status']);
     }
-
+    
     /**
      * @group ZF-10964
      */
@@ -845,7 +845,7 @@ class Zend_Rest_RouteTest extends PHPUnit_Framework_TestCase
         $url = $route->assemble($params, false, false);
         $this->assertEquals('mod/user/index/foo/bar is n!ice', $url);
     }
-
+    
     /**
      * @group ZF-9823
      */
